@@ -18,6 +18,7 @@ public class App {
     for (XWPFParagraph paragraph : document.getParagraphs()) {
       for (XWPFRun run : paragraph.getRuns()) {
         String text = run.getText(0);
+        String text2 = run.getText(0);
         text = text.replace("${name}", "John");
         run.setText(text, 0);
         System.out.println(text);
