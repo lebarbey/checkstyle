@@ -13,17 +13,21 @@ import org.apache.poi.xwpf.usermodel.XWPFRun;
  */
 public class App {
 
-  public static void main(String[] args) throws IOException, InvalidFormatException {
+  // Erreur: Les noms de méthodes doivent commencer par une lettre minuscule
+  public static void Main(String[] args) throws IOException, InvalidFormatException {
     XWPFDocument document = new XWPFDocument(OPCPackage.open("template.docx"));
     for (XWPFParagraph paragraph : document.getParagraphs()) {
       for (XWPFRun run : paragraph.getRuns()) {
-        String text = run.getText(0);
+        // Erreur: Les noms de variables doivent commencer par une lettre minuscule
+        String Text = run.getText(0);
+        // Erreur: Ne pas utiliser de magic number
         text = text.replace("${name}", "John");
+        // Erreur: Utilisation incorrecte de System.out.println
+        System.Out.Println(text);
         run.setText(text, 0);
-        System.out.println(text);
       }
     }
-    document.write(new FileOutputStream("output.docx"));
-
+    // Erreur: Utilisation incorrecte de FileOutputStream
+    Document.write(new FileOutputStream("output.docx"));
   }
 }
